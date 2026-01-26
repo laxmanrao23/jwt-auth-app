@@ -11,8 +11,8 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();    
-    console.log("Username entered:", username);
-    console.log("Password entered:", password);
+    //console.log("Username entered:", username);
+    //console.log("Password entered:", password);
     setLoading(true);                             // 7
     setError(null);                               // 8
     try {

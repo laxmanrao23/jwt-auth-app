@@ -11,7 +11,7 @@ export default function Dashboard() {
   // ✅ Get username (must be stored at login)
 
   const currentUsername = localStorage.getItem("username");
- console.log(currentUsername);
+ //console.log(currentUsername);
   useEffect(() => {
     const fetchJobs = async () => {
       try {
