@@ -33,7 +33,7 @@ export default function Dashboard() {
 
   // ✅ DELETE HANDLER
   const handleDelete = async () => {
-    debugger;
+    //debugger;
     if (!currentUsername) {
       alert("User not found");
       return;
@@ -45,7 +45,7 @@ export default function Dashboard() {
     if (!confirmDelete) return;
 
     try {
-      debugger;
+      //debugger;
       await deleteAccount(currentUsername);
       alert("Account deleted successfully");
       logout();

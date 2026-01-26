@@ -15,7 +15,7 @@ function Signup() {
   // 2️⃣ Submit handler
   const handleSubmit = async (e) => {
     e.preventDefault(); // stop page refresh
-    debugger;
+    //debugger;
     try {
       await signup(username, password);
       setMessage("User registered successfully ✅");
