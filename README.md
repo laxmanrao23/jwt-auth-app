@@ -1,3 +1,25 @@
+Designed and developed a full-stack web application using React.js for frontend and Spring Boot for backend services.
+
+Implemented secure authentication and authorization using JWT, including login, signup, OTP-based password reset, and role-based access control.
+
+Built RESTful APIs for user management, job listings, and account lifecycle operations (create, read, update, delete).
+
+Integrated MongoDB Atlas for scalable data storage and handled schema design and repository layers.
+
+Implemented email-based OTP delivery for secure password recovery and account verification.
+
+Managed environment-specific configurations (local & production) using environment variables.
+
+Deployed frontend and backend applications to cloud platforms, ensuring production readiness.
+
+Handled error handling, validation, and security configurations using Spring Security.
+
+Followed clean architecture principles with separation of controller, service, and repository layers.
+
+Used Git & GitHub for version control and continuous deployment workflows.
+
+Performed end-to-end testing of APIs using Swagger and integrated frontend-backend communication.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
