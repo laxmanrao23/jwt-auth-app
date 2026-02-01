@@ -56,6 +56,8 @@ export default function Login() {
         <button type="submit" disabled={loading} style={{ marginTop: 12 }}>
           {loading ? "Logging in..." : "Login"}      {/* 17 */}
         </button>
+ 
+        <button type="button" onClick={() => navigate("/")} style={{margin: "10px"}}>Back to Home</button>
       </form>
     </div>
   );

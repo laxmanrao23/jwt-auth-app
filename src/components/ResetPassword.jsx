@@ -6,6 +6,7 @@ export default function ResetPassword() {
   const [username, setUsername] = useState("");
   const [otp, setOtp] = useState("");
   const [password, setPassword] = useState("");
+  const [email, SetEmail] = useState("");
   const navigate = useNavigate();
 
   const handleReset = async () => {
@@ -13,6 +14,7 @@ export default function ResetPassword() {
       username,
       otp,
       newPassword: password,
+      email
     });
     alert("Password updated");
     navigate("/login");
@@ -23,6 +25,11 @@ export default function ResetPassword() {
       <h2>Reset Password</h2>
 
       <input placeholder="Username" onChange={e => setUsername(e.target.value)} />
+      <input 
+            type="text" placeholder="Email" 
+            //value={email}
+            onChange={(e) => SetEmail(e.target.value)}
+        />
       <input placeholder="OTP" onChange={e => setOtp(e.target.value)} />
       <input placeholder="New Password" type="password"
              onChange={e => setPassword(e.target.value)} />

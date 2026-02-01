@@ -8,7 +8,7 @@ function Home() {
       <div style={styles.card}>
         <h1>Welcome 👋</h1>
         <p>Your one-stop platform for learning & finance</p>
-
+        
         <div style={styles.buttons}>
           <button onClick={() => navigate("/login")}>Login</button>
           <button onClick={() => navigate("/signup")}>Sign Up</button>
