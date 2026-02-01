@@ -8,7 +8,9 @@ export default function ForgotPassword() {
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
-    await axios.post("/auth/forgot-password", { username, email });
+    await axios.post("/auth/forgot-password", { username, email }, {Headers: {
+      "Content-type":"application/json"
+    }});
     alert("OTP sent");
     navigate("/ResetPassword");
   };
