@@ -2,16 +2,18 @@ import { useEffect, useState } from "react";
 import axios from "../Api/axiosConfig";
 import { logout, deleteAccount } from "../Auth/AuthService";
 import { useNavigate } from "react-router-dom";
+import Products from "./Products";
+import Cart from "./Cart";
 
 export default function Dashboard() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [activeView, setActiveView] = useState("jobs"); // ✅ NEW
+
   const navigate = useNavigate();
-
-  // ✅ Get username (must be stored at login)
-
   const currentUsername = localStorage.getItem("username");
- //console.log(currentUsername);
+
+  // ✅ Fetch Jobs (existing logic untouched)
   useEffect(() => {
     const fetchJobs = async () => {
       try {
@@ -31,9 +33,8 @@ export default function Dashboard() {
     fetchJobs();
   }, [navigate]);
 
-  // ✅ DELETE HANDLER
+  // ✅ DELETE HANDLER (unchanged)
   const handleDelete = async () => {
-    //debugger;
     if (!currentUsername) {
       alert("User not found");
       return;
@@ -45,7 +46,6 @@ export default function Dashboard() {
     if (!confirmDelete) return;
 
     try {
-      //debugger;
       await deleteAccount(currentUsername);
       alert("Account deleted successfully");
       logout();
@@ -60,19 +60,41 @@ export default function Dashboard() {
     <div style={{ padding: 20 }}>
       <h2>Dashboard</h2>
 
-      <button onClick={() => { logout(); navigate("/login"); }}>
-        Logout
-      </button>
+      {/* 🔹 TOP NAVIGATION */}
+      <div style={{ marginBottom: 20 }}>
+        <button onClick={() => setActiveView("jobs")}>Jobs</button>
+        <button onClick={() => setActiveView("products")}>Products</button>
+        <button onClick={() => setActiveView("cart")}>Cart</button>
 
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <ul>
-          {jobs.map((job, index) => (
-            <li key={index}>{job}</li>
-          ))}
-        </ul>
+        <button
+          onClick={() => {
+            logout();
+            navigate("/login");
+          }}
+          style={{ marginLeft: 20 }}
+        >
+          Logout
+        </button>
+      </div>
+
+      {/* 🔹 CONTENT AREA */}
+      {activeView === "jobs" && (
+        <>
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            <ul>
+              {jobs.map((job, index) => (
+                <li key={index}>{job}</li>
+              ))}
+            </ul>
+          )}
+        </>
       )}
+
+      {activeView === "products" && <Products />}
+
+      {activeView === "cart" && <Cart />}
 
       {/* 🔴 DELETE ACCOUNT */}
       <button
